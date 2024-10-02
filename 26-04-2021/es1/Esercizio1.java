@@ -7,7 +7,8 @@ public class Esercizio1 {
         PipedOutputStream pos = new PipedOutputStream();
 
         try {
-            PipedInputStream pis = new PipedInputStream(); 
+            PipedInputStream pis = new PipedInputStream(pos); 
+            @SuppressWarnings("resource")
             BufferedReader br = new BufferedReader(new InputStreamReader(pis));
             RilevatoreAria ra = new RilevatoreAria(pos);
             ra.start();
@@ -18,11 +19,11 @@ public class Esercizio1 {
                 long newTime = Long.parseLong(br.readLine());
 
                 if (val < 20) {
-                    System.out.println(val + " - basso");
+                    System.out.println(val + "\t(basso)");
                 } else if (val < 75) {
-                    System.out.println(val + " - medio");
+                    System.out.println(val + "\t(medio)");
                 } else {
-                    System.out.println(val + " - alto");
+                    System.out.println(val + "\t(alto)");
                 }
 
                 long elapsedTime = newTime + oldTime;
@@ -42,10 +43,10 @@ public class Esercizio1 {
             }
 
             System.out.println("Il processo principale è stato completato.");
-            br.close();
-            
+
         } catch (IOException e) {
             e.printStackTrace();
+            System.exit(-100);
         }
     }
 }
