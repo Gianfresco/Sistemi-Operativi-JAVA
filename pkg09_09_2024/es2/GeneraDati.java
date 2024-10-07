@@ -1,4 +1,4 @@
-package es1;
+package pkg09_09_2024.es2;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;

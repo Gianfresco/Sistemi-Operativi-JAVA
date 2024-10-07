@@ -1,4 +1,4 @@
-package es2;
+package pkg09_09_2024.es2;
 
 public class Storico {
     private int cambiRepentini = 0;
