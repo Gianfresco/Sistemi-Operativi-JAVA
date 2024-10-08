@@ -1,7 +1,6 @@
 package es2;
 
 import java.io.*;
-import java.nio.channels.Pipe;
 
 public class Esercizio2 {
     public static void main(String args[]) {
