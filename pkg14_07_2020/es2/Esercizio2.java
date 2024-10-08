@@ -3,6 +3,7 @@ package pkg14_07_2020.es2;
 import java.io.*;
 
 public class Esercizio2 {
+    @SuppressWarnings("static-access")
     public static void main(String[] args) {
         DatiAzionari da = new DatiAzionari();
         BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
@@ -71,7 +72,7 @@ public class Esercizio2 {
         }
 
         rd.terminaThread();
-        Warning fine = new Warning("fine", valore);
+        // Warning fine = new Warning("fine", valore);
 
         try {
             rd.join();
