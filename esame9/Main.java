@@ -6,6 +6,7 @@ import java.io.PipedOutputStream;
 import java.nio.charset.Charset;
 
 public class Main {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         PipedInputStream pis = new PipedInputStream();
         PipedOutputStream pos = null;

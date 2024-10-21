@@ -3,6 +3,7 @@ package esame10;
 import java.io.*;
 
 public class Main {
+    @SuppressWarnings({ "static-access", "unused" })
     public static void main(String[] args) {
         Macchina mcn = new Macchina();
         SimulaProduzione sp = new SimulaProduzione(mcn);
