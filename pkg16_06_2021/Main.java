@@ -19,14 +19,6 @@ public class Main {
             System.exit(-1);
         }
 
-        ObjectInputStream ois = null;
-        try {
-            ois = new ObjectInputStream(pis);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(-2);
-        }
-
         int soglia = 0;
 
         while (true) {
@@ -52,6 +44,14 @@ public class Main {
 
         GeneraRilevazioni gr = new GeneraRilevazioni(pos);
         gr.start();
+
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(pis);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(-2);
+        }
 
         int count = 0;
         int countCons = 0;
