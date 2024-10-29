@@ -28,7 +28,6 @@ public class MacchinaA implements Runnable {
 
                 try {
                     buffer = pg.getBytes("UTF-8");
-
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
