@@ -9,16 +9,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ScansionaInput implements Runnable{
     private AtomicBoolean isRunning = new AtomicBoolean();
     PipedInputStream pis = new PipedInputStream();
+    private VerificaInput vi = null;
 
-    public ScansionaInput(PipedInputStream pis) {
+    public ScansionaInput(PipedInputStream pis, VerificaInput verificaInput) {
         this.pis = pis;
+        this.vi = verificaInput;
     }
 
     public void run() {
         isRunning.set(true);
         BufferedReader br = new BufferedReader(new InputStreamReader(pis));
         String str = null;
-        VerificaInput vi = new VerificaInput();
 
         while (isRunning.get()) {
             try {

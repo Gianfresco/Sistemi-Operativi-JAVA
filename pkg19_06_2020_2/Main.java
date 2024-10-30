@@ -18,28 +18,26 @@ public class Main {
         }
 
         InputUtente iu = new InputUtente(pos);
-        Thread Tiu = new Thread();
+        Thread Tiu = new Thread(iu);
         Tiu.start();
-        
-        ScansionaInput si = new ScansionaInput(pis);
-        Thread Tsi = new Thread();
+
+        ScansionaInput si = new ScansionaInput(pis, vi);
+        Thread Tsi = new Thread(si);
         Tsi.start();
 
         while (true) {
-            if (vi.getNumStringheSospette() > 3) {
-                System.out.println("Numero stringhe sospette troppo elevato!");
-                break;
-            }
-
             try {
-                Thread.sleep(200);
+                Thread.currentThread().sleep(200);
+                if (vi.getNumStringheSospette() > 2) {
+                    iu.termina();
+                    si.termina();
+                    System.out.println("Numero stringhe sospette troppo elevato!");
+                    break;
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-
-        iu.termina();
-        si.termina();
 
         try {
             Tiu.join();
