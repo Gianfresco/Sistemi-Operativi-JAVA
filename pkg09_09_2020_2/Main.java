@@ -47,16 +47,19 @@ public class Main {
 
             if (!first) {
                 float variazione = (float) Math.abs(msr.getUmidita() - umdPrec) / umdPrec;
-    
-                if (variazione > 0.2) {System.out.println("Rilevata variazione superiore al 20%");
-                    stc.addCambioRepentino();
-                }
-    
+
+                System.out.println("Variazione umidità registrata: " + variazione + "%");
+                
                 if (variazione > 0.4) {
                     System.out.println("Rilevata variazione superiore al 40%, termino");
                     gd.termina();
                     avs.termina();
                     break;
+                }
+
+                if (variazione > 0.2) {
+                    System.out.println("Rilevata variazione superiore al 20%");
+                    stc.addCambioRepentino();
                 }
             } else {
                 first = false;
