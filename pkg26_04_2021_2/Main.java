@@ -25,7 +25,7 @@ public class Main {
         long currTime = 0;
         long oldTime = 0;
 
-        for (int i = 0; i < 2000; i++) {
+        for (int i = 0; i < 8; i++) {
             try {
                 val = Float.parseFloat(br.readLine());
                 currTime = Long.parseLong(br.readLine());
