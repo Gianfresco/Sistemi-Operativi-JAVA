@@ -1,6 +1,8 @@
 package pkg09_09_2020_2;
 
-public class Misure {
+import java.io.Serializable;
+
+public class Misure implements Serializable {
     private float temperatura;
     private int umidita;
 

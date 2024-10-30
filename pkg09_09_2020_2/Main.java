@@ -36,6 +36,7 @@ public class Main {
         }
         
         int umdPrec = 0;
+        boolean first = true;
 
         while (true) {
             try {
@@ -44,15 +45,24 @@ public class Main {
                 e.printStackTrace();
             }
 
-            if (umdPrec != 0 && msr.getUmidita() > (umdPrec + umdPrec / 100 * 20)) {
-                stc.addCambioRepentino();
+            if (!first) {
+                float variazione = (float) Math.abs(msr.getUmidita() - umdPrec) / umdPrec;
+    
+                if (variazione > 0.2) {System.out.println("Rilevata variazione superiore al 20%");
+                    stc.addCambioRepentino();
+                }
+    
+                if (variazione > 0.4) {
+                    System.out.println("Rilevata variazione superiore al 40%, termino");
+                    gd.termina();
+                    avs.termina();
+                    break;
+                }
+            } else {
+                first = false;
             }
 
-            if (msr.getUmidita() > (umdPrec + umdPrec / 100 * 40)) {
-                gd.termina();
-                avs.termina();
-                break;
-            }
+            umdPrec = msr.getUmidita();
         }
 
         try {
