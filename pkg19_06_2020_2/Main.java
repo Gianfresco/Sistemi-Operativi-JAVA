@@ -27,7 +27,7 @@ public class Main {
 
         while (true) {
             try {
-                Thread.currentThread().sleep(200);
+                Thread.sleep(200);
                 if (vi.getNumStringheSospette() > 2) {
                     iu.termina();
                     si.termina();
