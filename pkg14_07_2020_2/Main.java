@@ -38,6 +38,7 @@ public class Main {
         acT.start();
 
         System.out.println("Inserire indice... ");
+        @SuppressWarnings("unused")
         String indice = null;
         try {
             indice = br.readLine();
