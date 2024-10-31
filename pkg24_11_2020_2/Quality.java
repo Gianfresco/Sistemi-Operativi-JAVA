@@ -32,10 +32,11 @@ public class Quality extends Thread {
                 float qual = msg.readQuality();
 
                 if (qual < 0) {
-                    System.out.println("Errore, qualità: " + qual + " - PEZZO DIFETTOSO");
+                    System.out.println("[ERR]\tqualità: " + qual + " - PEZZO DIFETTOSO");
                     ovr.addDifettosi();
                 } else {
-                    System.out.println("OK, qualità:" + qual);
+                    System.out.println("[OK]\tqualità: " + qual);
+                    ovr.addCorretti();
                 }
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();

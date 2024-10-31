@@ -33,8 +33,20 @@ public class Machine extends Thread {
                 e.printStackTrace();
             }
 
-            // TODO: msg.writeQuality(1000 * rnd.);
-            // oos.writeObject(msg);
+            float qual = 2000 * rnd.nextFloat() - 1000;
+
+            msg = new Message();
+            msg.writeQuality(qual);
+
+            try {
+                oos.writeObject(msg);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    public void termina() {
+        isRunning.set(false);
     }
 }
