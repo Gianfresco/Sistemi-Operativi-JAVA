@@ -32,11 +32,11 @@ public class AvvisaConsumatori implements Runnable{
                 e.printStackTrace();
             }
 
-            System.out.println(wrn.getMessaggio());
-
             if (wrn.getMessaggio().equals("fine")){
                 termina();
             }
+            
+            System.out.println(wrn.getMessaggio());
         }
     }
 
