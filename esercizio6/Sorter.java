@@ -15,5 +15,16 @@ public class Sorter implements Runnable {
 
     public void run() {
         isRunning.set(true);
+        int id = 0;
+        double load = 0;
+        double maxLoad = 0;
+
+        while (isRunning.get()) {
+            load = tl.getLoad();
+
+            if (load > maxLoad) {
+                
+            }
+        }
     }
 }
