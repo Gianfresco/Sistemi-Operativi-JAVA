@@ -3,13 +3,11 @@ package pkg18_06_2021_2;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PipedOutputStream;
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GeneraRilevazioni extends Thread {
     private AtomicBoolean isRunning = new AtomicBoolean(false);
     PipedOutputStream pos = null;
-    Random rnd = new Random();
 
     public GeneraRilevazioni(PipedOutputStream pos) {
         this.pos = pos;
@@ -33,7 +31,7 @@ public class GeneraRilevazioni extends Thread {
                 e.printStackTrace();
             }
 
-            int val = rnd.nextInt() * 200;
+            int val = (int)(Math.random() * 200);
             long time = System.currentTimeMillis();
 
             Rilevazione rlv = new Rilevazione(val, time);
