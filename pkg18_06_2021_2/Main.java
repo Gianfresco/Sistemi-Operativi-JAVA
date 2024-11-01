@@ -18,6 +18,9 @@ public class Main {
             System.exit(-1);
         }
 
+        GeneraRilevazioni gr = new GeneraRilevazioni(pos);
+        gr.start();
+
         ObjectInputStream ois = null;
         try {
             ois = new ObjectInputStream(pis);
@@ -26,10 +29,7 @@ public class Main {
             System.exit(-2);
         }
 
-        GeneraRilevazioni gr = new GeneraRilevazioni(pos);
-        gr.start();
-
-        System.out.println("Inserire valore di soglia critica [100, 200]");
+        System.out.println("Inserire valore di soglia critica [100, 200]... ");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int soglia = 0;
         try {
@@ -48,17 +48,15 @@ public class Main {
                 e.printStackTrace();
             }
 
-            int dato = rlv.getValore();
-
-            if (dato <= 50) {
-                System.out.println("Basso:\t" + dato);
-            } else if (dato > 50 || dato < 100) {
-                System.out.println("Medio:\t" + dato);
+            if (rlv.getValore() <= 50) {
+                System.out.println("Basso:\t" + rlv.getValore());
+            } else if (rlv.getValore() > 50 || rlv.getValore() < 100) {
+                System.out.println("Medio:\t" + rlv.getValore());
             } else {
-                System.out.println("Alto:\t" + dato);
+                System.out.println("Alto:\t" + rlv.getValore());
             }
 
-            if (dato > soglia) {
+            if (rlv.getValore() > soglia) {
                 counter++;
                 if (counter == 3) {
                     break;
